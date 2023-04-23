@@ -20,7 +20,7 @@ public class GUI extends JFrame {
         initGUI();
 
         this.setTitle("My Presentation");
-        this.setSize(600, 400);
+        this.setSize(1000, 800);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -38,7 +38,7 @@ public class GUI extends JFrame {
         containerImage = new JPanel();
         listener = new Listener();
         imageLabel = new JLabel();
-        expectativesText = new JTextArea(10, 12);
+        expectativesText = new JTextArea(12, 12);
 
         containerImage.setBorder(BorderFactory.createTitledBorder(null, "About me", TitledBorder.CENTER, TitledBorder.DEFAULT_JUSTIFICATION, new Font(Font.SANS_SERIF,Font.PLAIN,20), Color.BLACK));
         containerImage.add(imageLabel);
@@ -47,9 +47,16 @@ public class GUI extends JFrame {
         containerButtons.add(myHobby);
         containerButtons.add(myExpectations);
 
+        //se agregan los listener (mouse,key) a los botones
         myPhoto.addActionListener(listener);
         myHobby.addActionListener(listener);
         myExpectations.addActionListener(listener);
+        myHobby.addMouseListener(listener);
+        myExpectations.addMouseListener(listener);
+        myPhoto.addMouseListener(listener);
+        myPhoto.addKeyListener(listener);
+        myHobby.addKeyListener(listener);
+        myExpectations.addKeyListener(listener);
 
         this.add(title, BorderLayout.NORTH);
         this.add(containerButtons, BorderLayout.SOUTH);
