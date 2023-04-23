@@ -5,7 +5,7 @@ import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.*;
 
-public class GUI extends JFrame {
+public class Main extends JFrame {
     //atributos
     private JButton myPhoto, myHobby, myExpectations;
     private JPanel containerButtons, containerImage;
@@ -15,10 +15,11 @@ public class GUI extends JFrame {
     private JTextArea expectativesText;
 
     //metodos
-    public GUI(){
+    public Main(){
         initGUI();
         this.setTitle("My Presentation");
-        this.setSize(1000, 800);
+        this.setSize(200, 100);
+        this.setResizable(false);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -64,7 +65,7 @@ public class GUI extends JFrame {
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             @Override
-            public void run() { GUI myGui = new GUI();
+            public void run() { Main myGui = new Main();
             }
         });
     }
@@ -92,6 +93,11 @@ public class GUI extends JFrame {
                 this.image = new ImageIcon(getClass().getResource("/resources/Hobby.jpeg"));
                 imageLabel.setIcon(image);
             }
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+
         }
 
         @Override
