@@ -33,7 +33,7 @@ public class GUI extends JFrame {
         title = new Title("A little more about me", Color.BLACK);
         myPhoto = new JButton("This is me");
         myHobby = new JButton("This is my passion");
-        myExpectations = new JButton("I expect to get the best of you");
+        myExpectations = new JButton("What I expected");
         containerButtons = new JPanel();
         containerImage = new JPanel();
         listener = new Listener();
