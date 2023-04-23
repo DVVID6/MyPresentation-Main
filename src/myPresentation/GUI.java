@@ -3,8 +3,7 @@ package myPresentation;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
 public class GUI extends JFrame {
     //atributos
@@ -18,7 +17,6 @@ public class GUI extends JFrame {
     //metodos
     public GUI(){
         initGUI();
-
         this.setTitle("My Presentation");
         this.setSize(1000, 800);
         this.setVisible(true);
@@ -66,26 +64,59 @@ public class GUI extends JFrame {
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             @Override
-            public void run() {
-                GUI myGui = new GUI();
+            public void run() { GUI myGui = new GUI();
             }
         });
     }
-
-    private class Listener implements ActionListener{
+    // aqui agregue los eventos que se van a implementar ActionListener, MouseListener y KeyListener.
+    private class Listener implements ActionListener, MouseListener, KeyListener {
         private ImageIcon image;
         @Override
         public void actionPerformed(ActionEvent e) {
             //JOptionPane.showMessageDialog(null, "Press button");
-            imageLabel.setIcon(null);
-            containerImage.remove(expectativesText);
-            if(e.getSource() == myPhoto){
+
+
+            if (e.getSource() == myPhoto) {
+                containerImage.remove(expectativesText);
+                imageLabel.setIcon(null);
                 this.image = new ImageIcon(getClass().getResource("/resources/Me.jpg"));
                 imageLabel.setIcon(image);
-            }else if(e.getSource() == myHobby){
+            }
+        }
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            if (e.getSource() == myHobby && e.getClickCount() == 2) {
+                containerImage.remove(expectativesText);
+                imageLabel.setIcon(null);
                 this.image = new ImageIcon(getClass().getResource("/resources/Hobby.jpeg"));
                 imageLabel.setIcon(image);
-            }else if(e.getSource() == myExpectations) {
+            }
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+
+        }
+
+        @Override
+        public void keyTyped(KeyEvent e) {
+
+        }
+
+        public void keyPressed(KeyEvent e) {
+            if (e.getKeyCode() == 77) {
+                imageLabel.setIcon(null);
                 expectativesText.setText("I hope to learn enough to have the teacher's salary\n");
                 expectativesText.setBackground(null);
                 expectativesText.setForeground(Color.BLACK);
@@ -93,6 +124,11 @@ public class GUI extends JFrame {
             }
             revalidate();
             repaint();
+        }
+
+        @Override
+        public void keyReleased(KeyEvent e) {
+
         }
     }
 }
