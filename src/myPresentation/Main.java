@@ -123,7 +123,7 @@ public class Main extends JFrame {
         public void keyPressed(KeyEvent e) {
             if (e.getKeyCode() == 77) {
                 imageLabel.setIcon(null);
-                expectativesText.setText("I hope to learn enough to have the teacher's salary\n");
+                expectativesText.setText("I hope to learn enough to earn the teacher's salary\n");
                 expectativesText.setBackground(null);
                 expectativesText.setForeground(Color.BLACK);
                 containerImage.add(expectativesText);
